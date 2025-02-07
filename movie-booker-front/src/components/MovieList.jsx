@@ -43,7 +43,7 @@ const MovieList = () => {
       alert('Réservation réussie !');
       setSelectedMovie(null);
     } catch (error) {
-      alert('Erreur lors de la réservation');
+      alert("Erreur lors de la réservation : vérifiez que l'heure de réservation ne chevauche pas une autre réservation précédente");
     }
   };
 
