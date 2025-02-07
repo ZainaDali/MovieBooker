@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: moviebooker-back
+    env: node
+    buildCommand: cd movie-booker-back && npm install && npm run build
+    startCommand: cd movie-booker-back && npm run start:prod
+    rootDir: movie-booker-back
+    envVars:
+      - key: DB_HOST
+        value: dpg-cuj0htl6l47c73alcpe0-a.oregon-postgres.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USERNAME
+        value: moviebooker_a5hl_user
+      - key: DB_PASSWORD
+        value: 0ifsiycmpxxThCW3AItCQ8SsL7WkjjFF
+      - key: DB_NAME
+        value: moviebooker_a5hl
+      - key: JWT_SECRET
+        value: "taSuperCleSecrete"
+      - key: JWT_DEADLINE
+        value: "3600s"
+
+  - type: web
+    name: moviebooker-front
+    env: node
+    buildCommand: cd movie-booker-front && npm install && npm run build
+    startCommand: cd movie-booker-front && npm run preview
+    rootDir: movie-booker-front
+    envVars:
+      - key: VITE_API_URL
+        value: "https://moviebooker-back.onrender.com"

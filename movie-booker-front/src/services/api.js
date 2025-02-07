@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://movie-booker-back.onrender.com';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -61,7 +61,7 @@ export const fetchMovieById = async (movieId) => {
   };
   
   export const getProfile = async (token) => {
-    const response = await fetch("http://localhost:3000/auth/profile", {
+    const response = await fetch(`${API_URL}/auth/profile`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -74,7 +74,7 @@ export const fetchMovieById = async (movieId) => {
   };
   
   export const cancelReservation = async (id, token) => {
-    const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+    const response = await fetch(`${API_URL}/reservations/${id}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`,
